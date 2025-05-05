@@ -120,7 +120,8 @@ retriever = FilteredRetriever(
 # === 5. LLM Setup ===
 groq_llm = ChatGroq(
     model="llama3-8b-8192",
-    api_key=os.environ.get("GROQ_API_KEY"),
+    #api_key=os.environ.get("GROQ_API_KEY"),
+    api_key=st.secrets["GROQ_API_KEY"],
     temperature=0
 )
 
