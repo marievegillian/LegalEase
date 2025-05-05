@@ -55,7 +55,7 @@ system_message = (
     "Questions outside this area will not be addressed."
 )
 
-//api_key = os.getenv("GROQ_API_KEY")
+#api_key = os.getenv("GROQ_API_KEY")
 api_key = st.secrets["GROQ_API_KEY"]
 if not api_key:
     st.error("API key is not set. Please set it as 'GROQ_API_KEY' environment variable.")
