@@ -158,25 +158,23 @@ else:
     if 'messages' not in st.session_state:
         st.session_state.messages = []
 
-    # ✅ Display the chat history first
     for message in st.session_state.messages:
-        role = message['role']
-        content = message['content']
-        st.chat_message(role).markdown(content)
+        st.chat_message(message['role']).markdown(message['content'])
 
-    # 🧠 Handle new input
     user_input = st.chat_input("Enter your legal question:")
 
     if user_input:
         user_message = {'role': 'user', 'content': user_input}
         st.session_state.messages.append(user_message)
+        st.chat_message('user').markdown(user_input)
 
         try:
             response = chain.invoke({"question": user_input})
+
             assistant_message = {'role': 'assistant', 'content': response['answer']}
             st.session_state.messages.append(assistant_message)
+            st.chat_message('assistant').markdown(response['answer'])
 
-            # The message will be shown automatically in the next rerun via the history loop
             if response.get('sources'):
                 st.markdown("**Sources:**")
                 for source in response['sources'].split(", "):
