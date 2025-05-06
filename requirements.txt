@@ -1,0 +1,15 @@
+streamlit
+groq
+langchain
+langchain-core
+langchain-community
+langchain-groq
+sentence-transformers
+faiss-cpu
+pydantic
+PyPDF2
+transformers
+torch
+typing_extensions
+python-dotenv
+pypdf
